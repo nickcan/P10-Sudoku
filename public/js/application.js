@@ -21,8 +21,8 @@ $(document).ready(function() {
 
   // Controller
   var bindEvents = function() {
-    $('#new_board').click(getBoard)
-    $('#solve_board').click(solveBoard)
+    $('.new_board').click(getBoard)
+    $('.solve_board').click(solveBoard)
   }
 
   // Series of actions to get a new board and populate it.
@@ -37,7 +37,6 @@ $(document).ready(function() {
   var solveBoard = function() {
     information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
     ajaxCall(information).done(function(completedBoard) {
-      $('body').append(completedBoard)
       solveBoardDoneFunction(completedBoard)
     })
   }

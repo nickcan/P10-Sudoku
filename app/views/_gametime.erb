@@ -19,8 +19,19 @@
     </table>
   </nav>
 </header>
-<a id="new_board" href="/board/new">New Board</a>
-<a href="/board/solution" id="solve_board">Solve Board</a>
+<div class="container">
+  <center>
+    <button class="game_links">
+      <a class="new_board links" href="/board/new">New Board</a>
+    </button>
+    <button class="game_links">
+      <a class="solve_board links" href="/board/solution">Solve Board</a>
+    </button>
+    <button class="game_links">
+      <a class="links" href="#">Submit Solution</a>
+    </button>
+  </center>
+</div>
 
 
 <%= erb :_board, layout: false %>
