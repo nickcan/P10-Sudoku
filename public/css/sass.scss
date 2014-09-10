@@ -1,7 +1,32 @@
 $center-2p: 2% auto;
+$main_color: grey;
+$margin: 4%;
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
 
 body {
   background-color: #F1F1F1;
+}
+
+.main_head {
+  width: 100%;
+  background-color: $main_color;
+  height: 5.5em;
+
+  .main_title {
+    margin-left: $margin;
+  }
+
+  .nav_bar {
+    width: 5%;
+    margin-right: $margin;
+  }
 }
 
 .container {

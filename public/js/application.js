@@ -7,6 +7,14 @@ $(document).ready(function() {
     splitBoardString: function(string) {
       array = string.split("")
       return array
+    },
+
+    checkCorrectness: function(user, api) {
+      if (user == api) {
+        console.log("winner!")
+      } else {
+        console.log('you lost')
+      }
     }
   }
 
@@ -55,7 +63,7 @@ $(document).ready(function() {
   var solveBoardDoneFunction = function(data) {
     setBoard(data)
     string = compileBoardToString()
-    checkCorrectness(string, data)
+    Game.checkCorrectness(string, data)
   }
 
   var setCurrentBoard = function(data) {
@@ -66,31 +74,22 @@ $(document).ready(function() {
   // View
 
   var setBoard = function(array) {
-    $('td').each(function(i) {
+    $('#board td').each(function(i) {
       if (array[i] == "0") {
         $(this).attr('contenteditable', 'true')
       } else {
         $(this).html(array[i])
       }
-      i += 1
     })
   }
 
   var compileBoardToString = function() {
-    var user_solution = $('td').text()
+    var user_solution = $('#board td').text()
     return user_solution
   }
 
-  var checkCorrectness = function(user, api) {
-    if (user == api) {
-      console.log("winner!")
-    } else {
-      console.log('you lost')
-    }
-  }
-
   var clearBoard = function() {
-    $('td').html("");
+    $('#board td').html("");
   }
 
   bindEvents();

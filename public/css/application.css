@@ -1,5 +1,21 @@
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 body {
   background-color: #F1F1F1; }
+
+.main_head {
+  width: 100%;
+  background-color: grey;
+  height: 5.5em; }
+  .main_head .main_title {
+    margin-left: 4%; }
+  .main_head .nav_bar {
+    width: 5%;
+    margin-right: 4%; }
 
 .container {
   width: 90%;
