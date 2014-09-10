@@ -1,11 +1,14 @@
 $center-2p: 2% auto;
-$dark_color: #6596e7;
-$lighter_color: #e4e8f0;
-$text_color: #003682;
-$contrast_color: #ec971f;
-$margin: 4%;
-$table_border: 2px solid #003682;
+$dark_color: #3d414c;
+$lighter_color: #f9fafc;
+$text_color: white;
+$blue: #3d88dd;
+$hover_color: #005daf;
+$margin: 7%;
+$thin_border: 2px solid $dark_color;
+$thick_border: 5px solid $dark_color;
 $full_circle: 2% 2.5% 2% 2.5%;
+$box-shadow: 0 0 6px $dark_color;
 
 .left {
   float: left;
@@ -41,17 +44,26 @@ body {
   width: 80%;
   margin: $center-2p;
 
-  .game_links {
-    width: 15%;
-    height: 3em;
-    margin: $full_circle;
-    border-radius: 5px;
-    background-color: $contrast_color;
-    border: 2px solid $text_color;
+  a {
+    color: $text_color;
+    text-decoration: none;
 
-    a {
+    .game_links {
+      width: 15%;
+      height: 3em;
+      margin: $full_circle;
+      border-radius: 5px;
+      background-color: $blue;
+      border: 2px solid $text_color;
+      box-shadow: $box-shadow;
       color: $text_color;
-      text-decoration: none;
+      transition: border, background-color, box-shadow, .5s;
+    }
+
+    .game_links:hover {
+      border: 2px solid $dark_color;
+      background-color: $dark_color;
+      box-shadow: 0 0 15px #000;
     }
   }
 }
@@ -60,13 +72,50 @@ body {
   width: 700px;
   height: 700px;
   margin: $center-2p;
-  border: $table_border;
+  border: $thick_border;
+  box-shadow: $box-shadow;
+  font-size: 1.3em;
+  font-weight: bold;
+
+  tr:nth-child(3n+3) {
+    border-bottom: $thick_border;
+  }
 
   td {
     width: 11.1%;
-    border-right: $table_border;
-    border-bottom: $table_border;
+    border-right: $thin_border;
+    border-bottom: $thin_border;
     background-color: white;
     text-align: center;
+  }
+
+  td:nth-child(3n+3) {
+    border-right: $thick_border;
+  }
+}
+
+// Welcome Page
+#welcome {
+  background-color: $dark_color;
+  height: 51em;
+  position: fixed;
+  width: 100%;
+
+  .sudoku_title {
+    color: $text_color;
+  }
+
+  .form_container {
+    margin: 15% auto;
+  }
+
+  #signup, #signin {
+    width: 50%;
+    margin: $margin;
+
+    input {
+      width: 80%;
+      height: 2em;
+    }
   }
 }

@@ -3,6 +3,7 @@ $(document).ready(function() {
   // Model
   var Game = {
     currentBoard: {board: ""},
+    solvedBoard: {board: ""},
 
     splitBoardString: function(string) {
       array = string.split("")
@@ -21,12 +22,14 @@ $(document).ready(function() {
 
   // Controller
   var bindEvents = function() {
-    $('.new_board').click(getBoard)
+    $('.new_board').click(getNewBoard)
     $('.solve_board').click(solveBoard)
+    $('.submit_solution').click(checkSolution)
   }
 
   // Series of actions to get a new board and populate it.
-  var getBoard = function() {
+  var getNewBoard = function() {
+    Game.solvedBoard.board = ""
     information = {element: $(this), request_type: "GET"}
     ajaxCall(information).done(function(serverData) {
       newBoardDoneFunction(serverData)
@@ -35,10 +38,29 @@ $(document).ready(function() {
 
   // series of actions to recieve a solved board.
   var solveBoard = function() {
-    information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
-    ajaxCall(information).done(function(completedBoard) {
-      solveBoardDoneFunction(completedBoard)
-    })
+    if (Game.solvedBoard.board === "") {
+      information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
+      ajaxCall(information).done(function(completedBoard) {
+        Game.solvedBoard.board = completedBoard
+        solveBoardDoneFunction(completedBoard)
+      })
+    } else {
+      event.preventDefault();
+    }
+  }
+
+  var checkSolution = function() {
+    if (Game.solvedBoard.board === "") {
+      information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
+      ajaxCall(information).done(function(completedBoard) {
+        string = compileBoardToString()
+        Game.checkCorrectness(string, completedBoard)
+      })
+    } else {
+      event.preventDefault();
+      string = compileBoardToString()
+      Game.checkCorrectness(string, Game.solvedBoard.board)
+    }
   }
 
   // Generic ajax call that takes an object as an argument.
@@ -62,7 +84,6 @@ $(document).ready(function() {
   var solveBoardDoneFunction = function(data) {
     setBoard(data)
     string = compileBoardToString()
-    Game.checkCorrectness(string, data)
   }
 
   var setCurrentBoard = function(data) {
@@ -71,13 +92,12 @@ $(document).ready(function() {
 
 
   // View
-
   var setBoard = function(array) {
     $('#board td').each(function(i) {
       if (array[i] == "0") {
-        $(this).attr('contenteditable', 'true')
+        $(this).attr('contenteditable', 'true').css('color', '#3d88dd')
       } else {
-        $(this).html(array[i])
+        $(this).html(array[i]).css('color', '#000')
       }
     })
   }
@@ -89,6 +109,7 @@ $(document).ready(function() {
 
   var clearBoard = function() {
     $('#board td').html("");
+    $('#board td').attr('contenteditable', 'false')
   }
 
   bindEvents();
