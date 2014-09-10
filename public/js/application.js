@@ -46,6 +46,7 @@ $(document).ready(function() {
   }
 
   var newBoardDoneFunction = function(data) {
+    clearBoard();
     setCurrentBoard(data)
     array = Game.splitBoardString(Game.currentBoard.board)
     setBoard(array)
@@ -86,6 +87,10 @@ $(document).ready(function() {
     } else {
       console.log('you lost')
     }
+  }
+
+  var clearBoard = function() {
+    $('td').html("");
   }
 
   bindEvents();
