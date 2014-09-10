@@ -1,0 +1,5 @@
+<% if !logged_in? %>
+  <%= erb :_welcome, layout: false %>
+<% else %>
+  <%= erb :_gametime, layout: false %>
+<% end %>
