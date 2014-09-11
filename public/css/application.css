@@ -38,6 +38,7 @@ body {
       border: 2px solid white;
       box-shadow: 0 0 6px #3d414c;
       color: white;
+      outline: none;
       transition: border, background-color, box-shadow, .5s; }
     .container a .game_links:hover {
       border: 2px solid #3d414c;

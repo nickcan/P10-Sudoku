@@ -61,6 +61,7 @@ body {
       border: 2px solid $text_color;
       box-shadow: $box-shadow;
       color: $text_color;
+      outline: none;
       transition: border, background-color, box-shadow, .5s;
     }
 

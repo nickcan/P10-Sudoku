@@ -12,11 +12,17 @@ $(document).ready(function() {
 
     checkCorrectness: function(user, api) {
       if (user == api) {
-        console.log("winner!")
+        sendWin();
       } else {
         console.log('you lost')
       }
     }
+  }
+
+  var User = {
+    // calculateWinPercentage: function(attempts, wins) {
+      // return Number(wins)/Number(attempts)
+    // }
   }
 
 
@@ -25,6 +31,8 @@ $(document).ready(function() {
     $('.new_board').click(getNewBoard)
     $('.solve_board').click(solveBoard)
     $('.submit_solution').click(checkSolution)
+    $('#tabs ul li:nth-child(2) a').click(getProfile)
+    $('#tabs ul li:nth-child(3) a').click(getUsers)
   }
 
   // Series of actions to get a new board and populate it.
@@ -65,6 +73,37 @@ $(document).ready(function() {
     }
   }
 
+  // Gets the User's profile and uses Mustache.js to render into tab area.
+  var getProfile = function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/profile',
+      type: 'GET'
+    }).done(function(json) {
+      profileDoneFunction(json)
+    })
+  }
+
+  var getUsers = function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/users',
+      type: 'GET'
+    }).done(function(json) {
+      console.log(json)
+    })
+  }
+
+  var sendWin = function() {
+    ajax = $.ajax({
+      url: '/win',
+      type: 'PUT',
+      data: Game.solvedBoard
+    }).done(function() {
+      console.log("winner!")
+    })
+  }
+
   // Generic ajax call that takes an object as an argument.
    var ajaxCall = function(info) {
     event.preventDefault();
@@ -86,6 +125,12 @@ $(document).ready(function() {
   var solveBoardDoneFunction = function(data) {
     setBoard(data)
     string = compileBoardToString()
+  }
+
+  var profileDoneFunction = function(user) {
+    var profileHTML = Mustache.to_html(profileTemplate, user);
+    clearTabArea($('#profile'))
+    appendTabArea($('#profile'), profileHTML)
   }
 
   var setCurrentBoard = function(data) {
@@ -114,20 +159,28 @@ $(document).ready(function() {
     $('#board td').attr('contenteditable', 'false')
   }
 
-  bindEvents();
+  var clearTabArea = function(identifier) {
+    identifier.empty()
+  }
 
-  $('#tabs').tabs()
+  var appendTabArea = function(identifier, element) {
+    identifier.append(element)
+  }
+
+  $('#tabs').tabs();
+
+  var profileTemplate = "<h2>{{username}}'s Profile</h2>" +
+                          "<p><b>Attempts:</b> {{attempts}}</p>" +
+                            "<p><b>Wins:</b> {{wins}}"
+                              // "<p><b>Win Percentage:</b> " + User.calculateWinPercentage("{{attempts}}", "{{wins}}")
+
+  var allUsersTemplate = "<h3>"
+
+  bindEvents();
 });
 
 
 
 
-// attr('contenteditable', 'true')
 
-// "{{#board}}<td>{{.}}</td>{{/board}}" +
-// View
-// var boardTemplate = "<table id='board_table'>" +
-//                       "<tr>" +
-//                         "{{#board}}<td>{{.}}</td>{{/board}}" +
-//                       "</tr>" +
-//                     "</table>"
+
