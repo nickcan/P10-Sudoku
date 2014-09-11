@@ -18,6 +18,10 @@ $box-shadow: 0 0 6px $dark_color;
   float: right;
 }
 
+.margin_left {
+  margin-left: 3em;
+}
+
 body {
   background-color: $lighter_color;
 }
@@ -91,6 +95,50 @@ body {
 
   td:nth-child(3n+3) {
     border-right: $thick_border;
+  }
+}
+
+#tabs {
+  width: 90%;
+  margin: 7% auto;
+
+  ul {
+    width: 100%;
+    content: "";
+    display: table;
+    border-collapse: collapse;
+    background-color: $dark_color;
+
+
+
+    .tab {
+      display: inline-block;
+      border: $thin_border;
+      background-color: #dadbdd;
+      width: 12%;
+      height: 2em;
+      text-align: center;
+      padding-top: 1em;
+      transition: background-color, border-bottom, .5s;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+
+    .tab:focus {
+      background-color: $lighter_color;
+      outline: none;
+    }
+  }
+
+  .tab_area {
+    height: 20em;
+    margin-top: -1em;
+    border: $thin_border;
+    padding: 2em;
+    font-size: 1.2em;
   }
 }
 

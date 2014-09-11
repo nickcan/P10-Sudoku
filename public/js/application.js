@@ -30,6 +30,8 @@ $(document).ready(function() {
   // Series of actions to get a new board and populate it.
   var getNewBoard = function() {
     Game.solvedBoard.board = ""
+    clearBoard()
+    $('#board').effect('shake', 1500, 6)
     information = {element: $(this), request_type: "GET"}
     ajaxCall(information).done(function(serverData) {
       newBoardDoneFunction(serverData)
@@ -113,6 +115,8 @@ $(document).ready(function() {
   }
 
   bindEvents();
+
+  $('#tabs').tabs()
 });
 
 

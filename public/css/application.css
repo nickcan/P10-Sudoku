@@ -4,6 +4,9 @@
 .right {
   float: right; }
 
+.margin_left {
+  margin-left: 3em; }
+
 body {
   background-color: #f9fafc; }
 
@@ -59,6 +62,37 @@ body {
     text-align: center; }
   #board td:nth-child(3n+3) {
     border-right: 5px solid #3d414c; }
+
+#tabs {
+  width: 90%;
+  margin: 7% auto; }
+  #tabs ul {
+    width: 100%;
+    content: "";
+    display: table;
+    border-collapse: collapse;
+    background-color: #3d414c; }
+    #tabs ul .tab {
+      display: inline-block;
+      border: 2px solid #3d414c;
+      background-color: #dadbdd;
+      width: 12%;
+      height: 2em;
+      text-align: center;
+      padding-top: 1em;
+      transition: background-color, border-bottom, .5s; }
+      #tabs ul .tab a {
+        color: black;
+        text-decoration: none; }
+    #tabs ul .tab:focus {
+      background-color: #f9fafc;
+      outline: none; }
+  #tabs .tab_area {
+    height: 20em;
+    margin-top: -1em;
+    border: 2px solid #3d414c;
+    padding: 2em;
+    font-size: 1.2em; }
 
 #welcome {
   background-color: #3d414c;
