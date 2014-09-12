@@ -12,9 +12,9 @@ $(document).ready(function() {
 
     checkCorrectness: function(user, api) {
       if (user == api) {
-        sendWin();
+        showLightbox();
       } else {
-        console.log('you lost')
+        toggleIncorrect();
       }
     }
   }
@@ -33,13 +33,14 @@ $(document).ready(function() {
     $('.submit_solution').click(checkSolution)
     $('#tabs ul li:nth-child(2) a').click(getProfile)
     $('#tabs ul li:nth-child(3) a').click(getUsers)
+    $('.hide_button, .background').click(hideLightbox)
   }
 
   // Series of actions to get a new board and populate it.
   var getNewBoard = function() {
     Game.solvedBoard.board = ""
     clearBoard()
-    $('#board').effect('shake', 1500, 6)
+    shakeBoard()
     information = {element: $(this), request_type: "GET"}
     ajaxCall(information).done(function(serverData) {
       newBoardDoneFunction(serverData)
@@ -150,6 +151,10 @@ $(document).ready(function() {
     })
   }
 
+  var shakeBoard = function() {
+    $('#board').effect('shake', 1500, 6)
+  }
+
   var compileBoardToString = function() {
     var user_solution = $('#board td').text()
     return user_solution
@@ -168,7 +173,17 @@ $(document).ready(function() {
     identifier.append(element)
   }
 
-  $('#tabs').tabs();
+  var showLightbox = function() {
+    $('.background, .winner').fadeIn('slow');
+  }
+
+  var hideLightbox = function() {
+    $('.background, .winner').hide();
+  }
+
+  var toggleIncorrect = function() {
+    $('.incorrect').slideDown('slow').delay(1500).slideUp('slow')
+  }
 
   var profileTemplate = "<h2>{{username}}'s Profile</h2>" +
                           "<p><b>Attempts:</b> {{attempts}}</p>" +
@@ -180,7 +195,13 @@ $(document).ready(function() {
                               "<p><b>Attempts</b>: {{attempts}}  |  <b>Wins:</b> {{wins}}</p>" +
                           "{{/users}}"
 
+
+  hideLightbox();
+  $('.incorrect').hide()
+  $('#tabs').tabs();
+
   bindEvents();
+
 });
 
 

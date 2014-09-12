@@ -51,3 +51,7 @@ get '/profile' do
   content_type :json
   current_user.to_json
 end
+
+get '/lightbox' do
+  erb :_lightbox
+end

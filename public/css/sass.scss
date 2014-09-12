@@ -22,6 +22,10 @@ $box-shadow: 0 0 6px $dark_color;
   margin-left: 3em;
 }
 
+.margin-top {
+  margin-top: 10%;
+}
+
 body {
   background-color: $lighter_color;
 }
@@ -160,6 +164,42 @@ body {
     padding: 2em;
     font-size: 1.2em;
   }
+}
+
+// Lightbox
+.background {
+  width: 100%;
+  height: 51em;
+  background-color: #000;
+  position: fixed;
+  opacity: .9;
+}
+
+.winner {
+  position: absolute;
+  margin: 13% 30%;
+  background-color: $lighter_color;
+  width: 40%;
+  height: 25em;
+  text-align: center;
+
+  h2 {
+    position: relative;
+  }
+
+  img {
+    width: 30%;
+  }
+
+  h3 {
+    position: relative;
+  }
+}
+
+.incorrect {
+  text-align: center;
+  margin-bottom: 4%;
+  color: red;
 }
 
 // Welcome Page
