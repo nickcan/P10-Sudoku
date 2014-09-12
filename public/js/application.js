@@ -33,7 +33,11 @@ $(document).ready(function() {
     $('.submit_solution').click(checkSolution)
     $('#tabs ul li:nth-child(2) a').click(getProfile)
     $('#tabs ul li:nth-child(3) a').click(getUsers)
-    $('.hide_button, .background').click(hideLightbox)
+    $('.x_button, .background').click(hideLightbox)
+    $('.new_game_lightbox').click(function() {
+      hideLightbox();
+      getNewBoard();
+    })
   }
 
   // Series of actions to get a new board and populate it.
@@ -41,7 +45,7 @@ $(document).ready(function() {
     Game.solvedBoard.board = ""
     clearBoard()
     shakeBoard()
-    information = {element: $(this), request_type: "GET"}
+    information = {element: '/board/new', request_type: "GET"}
     ajaxCall(information).done(function(serverData) {
       newBoardDoneFunction(serverData)
     })
@@ -50,7 +54,7 @@ $(document).ready(function() {
   // series of actions to recieve a solved board.
   var solveBoard = function() {
     if (Game.solvedBoard.board === "") {
-      information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
+      information = {element: $(this).attr('href'), request_type: "POST", data_stuff: Game.currentBoard}
       ajaxCall(information).done(function(completedBoard) {
         Game.solvedBoard.board = completedBoard
         solveBoardDoneFunction(completedBoard)
@@ -62,7 +66,7 @@ $(document).ready(function() {
 
   var checkSolution = function() {
     if (Game.solvedBoard.board === "") {
-      information = {element: $(this), request_type: "POST", data_stuff: Game.currentBoard}
+      information = {element: $(this).attr('href'), request_type: "POST", data_stuff: Game.currentBoard}
       ajaxCall(information).done(function(completedBoard) {
         string = compileBoardToString()
         Game.checkCorrectness(string, completedBoard)
@@ -110,7 +114,7 @@ $(document).ready(function() {
    var ajaxCall = function(info) {
     event.preventDefault();
     ajax = $.ajax({
-      url: info.element.attr('href'),
+      url: info.element,
       type: info.request_type,
       data: info.data_stuff
     })
