@@ -23,6 +23,23 @@ body {
     margin: 0.85em 7%;
     font-size: 1.1em; }
 
+#signout {
+  float: right;
+  margin: 1.6em 5% 0 7%;
+  height: 2em;
+  width: 10%;
+  background-color: #3d88dd;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: .8em;
+  cursor: pointer;
+  color: white;
+  transition: background-color, color, .3s; }
+
+#signout:hover {
+  background-color: white;
+  color: #3d88dd; }
+
 .container {
   width: 80%;
   margin: 2% auto; }
@@ -100,15 +117,13 @@ body {
   height: 51em;
   position: fixed;
   width: 100%; }
-  #welcome .sudoku_title {
-    color: white; }
-  #welcome .form_container {
-    margin: 15% auto; }
+  #welcome #canvas {
+    margin-top: 10%; }
   #welcome #signup, #welcome #signin {
-    width: 50%;
-    margin: 7%; }
+    width: 100%;
+    margin: 2%; }
     #welcome #signup input, #welcome #signin input {
-      width: 80%;
+      width: 40%;
       height: 2em; }
 
 /*# sourceMappingURL=application.css.map */

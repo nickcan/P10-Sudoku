@@ -19,11 +19,11 @@ $(document).ready(function() {
     }
   }
 
-  var User = {
+  // var User = {
     // calculateWinPercentage: function(attempts, wins) {
       // return Number(wins)/Number(attempts)
     // }
-  }
+  // }
 
 
   // Controller
@@ -80,17 +80,18 @@ $(document).ready(function() {
       url: '/profile',
       type: 'GET'
     }).done(function(json) {
-      profileDoneFunction(json)
+      tabAreaDoneFunction(profileTemplate, json, $('#profile'))
     })
   }
 
+  // Returns all users
   var getUsers = function(event) {
     event.preventDefault();
     $.ajax({
       url: '/users',
       type: 'GET'
     }).done(function(json) {
-      console.log(json)
+      tabAreaDoneFunction(allUsersTemplate, json, $('#overall'))
     })
   }
 
@@ -127,10 +128,10 @@ $(document).ready(function() {
     string = compileBoardToString()
   }
 
-  var profileDoneFunction = function(user) {
-    var profileHTML = Mustache.to_html(profileTemplate, user);
-    clearTabArea($('#profile'))
-    appendTabArea($('#profile'), profileHTML)
+  var tabAreaDoneFunction = function(template, user, element) {
+    var html = Mustache.to_html(template, user);
+    clearTabArea(element)
+    appendTabArea(element, html)
   }
 
   var setCurrentBoard = function(data) {
@@ -174,7 +175,10 @@ $(document).ready(function() {
                             "<p><b>Wins:</b> {{wins}}"
                               // "<p><b>Win Percentage:</b> " + User.calculateWinPercentage("{{attempts}}", "{{wins}}")
 
-  var allUsersTemplate = "<h3>"
+  var allUsersTemplate =  "{{#users}}" +
+                            "<h3>{{username}}</h3>" +
+                              "<p><b>Attempts</b>: {{attempts}}  |  <b>Wins:</b> {{wins}}</p>" +
+                          "{{/users}}"
 
   bindEvents();
 });

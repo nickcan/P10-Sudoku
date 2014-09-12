@@ -1,20 +1,15 @@
 <div id="welcome">
   <center>
-    <header>
-      <h1 class="sudoku_title">Sudoku!</h1>
-    </header>
-    <div class="form_container">
-      <form id="signup" action="/users" method="post">
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="text" name="password" placeholder="Password"><br>
-        <input type="submit" value="Sign Up">
-      </form>
-
-      <form id="signin" action="/users/:id" method="post">
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="text" name="password" placeholder="Password"><br>
-        <input type="submit" value="Sign In">
-      </form>
-    </div>
+    <canvas id="canvas" width="500" height="250"></canvas>
+    <form id="signup" action="/users" method="post">
+      <input type="text" name="username" placeholder="Username"><br>
+      <input type="text" name="password" placeholder="Password"><br>
+      <input type="submit" value="Sign Up">
+    </form>
+    <form id="signin" action="/users/:id" method="post">
+      <input type="text" name="username" placeholder="Username"><br>
+      <input type="text" name="password" placeholder="Password"><br>
+      <input type="submit" value="Login">
+    </form>
   </center>
 </div>

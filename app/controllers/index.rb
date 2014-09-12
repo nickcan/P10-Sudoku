@@ -7,7 +7,7 @@ end
 
 get '/users' do
   content_type :json
-  (User.all).to_json
+  {users: (User.all)}.to_json
 end
 
 post '/users' do

@@ -44,6 +44,25 @@ body {
   }
 }
 
+#signout {
+  float: right;
+  margin: 1.6em 5% 0 7%;
+  height: 2em;
+  width: 10%;
+  background-color: #3d88dd;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: .8em;
+  cursor: pointer;
+  color: white;
+  transition: background-color, color, .3s;
+}
+
+#signout:hover {
+  background-color: white;
+  color: $blue;
+}
+
 .container {
   width: 80%;
   margin: $center-2p;
@@ -150,20 +169,16 @@ body {
   position: fixed;
   width: 100%;
 
-  .sudoku_title {
-    color: $text_color;
-  }
-
-  .form_container {
-    margin: 15% auto;
+  #canvas {
+    margin-top: 10%;
   }
 
   #signup, #signin {
-    width: 50%;
-    margin: $margin;
+    width: 100%;
+    margin: 2%;
 
     input {
-      width: 80%;
+      width: 40%;
       height: 2em;
     }
   }
