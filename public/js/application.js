@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     checkCorrectness: function(user, api) {
       if (user == api) {
-        showLightbox();
+        sendWin();
       } else {
         toggleIncorrect();
       }
@@ -106,7 +106,7 @@ $(document).ready(function() {
       type: 'PUT',
       data: Game.solvedBoard
     }).done(function() {
-      console.log("winner!")
+      showLightbox();
     })
   }
 
