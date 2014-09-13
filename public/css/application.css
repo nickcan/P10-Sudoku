@@ -1,0 +1,158 @@
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.margin_left {
+  margin-left: 3em; }
+
+.margin-top {
+  margin-top: 10%; }
+
+body {
+  background-color: #f9fafc; }
+
+.main_head {
+  width: 100%;
+  background-color: #3d414c;
+  height: 5.5em;
+  color: white; }
+  .main_head .main_title {
+    margin-left: 7%;
+    margin-top: 0.75em; }
+  .main_head .nav_bar {
+    width: 5%;
+    margin: 0.85em 7%;
+    font-size: 1.1em; }
+
+#signout {
+  float: right;
+  margin: 1.6em 5% 0 7%;
+  height: 2em;
+  width: 10%;
+  background-color: #3d88dd;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: .8em;
+  cursor: pointer;
+  color: white;
+  transition: background-color, color, .3s; }
+
+#signout:hover {
+  background-color: white;
+  color: #3d88dd; }
+
+.container {
+  width: 80%;
+  margin: 2% auto; }
+  .container a {
+    color: white;
+    text-decoration: none; }
+    .container a .game_links {
+      width: 15%;
+      height: 3em;
+      margin: 2% 2.5% 2% 2.5%;
+      border-radius: 5px;
+      background-color: #3d88dd;
+      border: 2px solid white;
+      box-shadow: 0 0 6px #3d414c;
+      color: white;
+      outline: none;
+      transition: border, background-color, box-shadow, .5s; }
+    .container a .game_links:hover {
+      border: 2px solid #3d414c;
+      background-color: #3d414c;
+      box-shadow: 0 0 15px #000; }
+
+#board {
+  width: 700px;
+  height: 700px;
+  margin: 2% auto;
+  border: 5px solid #3d414c;
+  box-shadow: 0 0 6px #3d414c;
+  font-size: 1.3em;
+  font-weight: bold; }
+  #board tr:nth-child(3n+3) {
+    border-bottom: 5px solid #3d414c; }
+  #board td {
+    width: 11.1%;
+    border-right: 2px solid #3d414c;
+    border-bottom: 2px solid #3d414c;
+    background-color: white;
+    text-align: center; }
+  #board td:nth-child(3n+3) {
+    border-right: 5px solid #3d414c; }
+
+#tabs {
+  width: 90%;
+  margin: 7% auto; }
+  #tabs ul {
+    width: 100%;
+    content: "";
+    display: table;
+    border-collapse: collapse;
+    background-color: #3d414c; }
+    #tabs ul .tab {
+      display: inline-block;
+      border: 2px solid #3d414c;
+      background-color: #dadbdd;
+      width: 12%;
+      height: 2em;
+      text-align: center;
+      padding-top: 1em;
+      transition: background-color, border-bottom, .5s; }
+      #tabs ul .tab a {
+        color: black;
+        text-decoration: none; }
+    #tabs ul .tab:focus {
+      background-color: #f9fafc;
+      outline: none; }
+  #tabs .tab_area {
+    height: 20em;
+    margin-top: -1em;
+    border: 2px solid #3d414c;
+    padding: 2em;
+    font-size: 1.2em; }
+
+.background {
+  width: 100%;
+  height: 51em;
+  background-color: #000;
+  position: fixed;
+  opacity: .9; }
+
+.winner {
+  position: absolute;
+  margin: 13% 30%;
+  background-color: #f9fafc;
+  width: 40%;
+  height: 25em;
+  text-align: center; }
+  .winner h2 {
+    position: relative; }
+  .winner img {
+    width: 30%; }
+  .winner h3 {
+    position: relative; }
+
+.incorrect {
+  text-align: center;
+  margin-bottom: 4%;
+  color: #c9302c; }
+
+#welcome {
+  background-color: #3d414c;
+  height: 51em;
+  position: fixed;
+  width: 100%; }
+  #welcome #canvas {
+    margin-top: 10%; }
+  #welcome #signup, #welcome #signin {
+    width: 100%;
+    margin: 2%; }
+    #welcome #signup input, #welcome #signin input {
+      width: 40%;
+      height: 2em; }
+
+/*# sourceMappingURL=application.css.map */

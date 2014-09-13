@@ -1,0 +1,51 @@
+<%= erb :_lightbox, layout: false %>
+<header class="main_head">
+  <h1 class="main_title left">Sudoku</h1>
+  <h5 class="mofo left">Motha' Fuckas</h5>
+  <a href="/signout">
+    <div id="signout">Sign Out</div>
+  </a>
+</header>
+<div class="container">
+  <center>
+    <a class="new_board links" href="/board/new">
+      <button class="game_links">New Board</button>
+    </a>
+    <a class="solve_board links" href="/board/solution">
+      <button class="game_links">Solve Board</button>
+    </a>
+    <a class="submit_solution links" href="/board/solution">
+      <button class="game_links">Submit Solution</button>
+    </a>
+  </center>
+</div>
+
+<h2 class="incorrect">Incorrect solution.  Keep trying.</h2>
+
+<%= erb :_board, layout: false %>
+
+<div id="tabs">
+  <ul>
+    <li class="tab"><a href="#directions">Directions</a></li>
+    <li class="tab"><a href="#profile">My Profile</a></li>
+    <li class="tab"><a href="#overall">Overall Scores</a></li>
+  </ul>
+  <div class="tab_area" id="directions">
+    <p>The objective of sudoku is to enter a digit from 1 through 9 in each cell, in such a way that:</p>
+    <ol>
+      <li>Each horizontal row contains each digit exactly once</li>
+      <li>Each vertical column contains each digit exactly once</li>
+      <li>Each subgrid or region contains each digit exactly once</li>
+    </ol>
+    <p>This explains the name of the game; in Japanese, sudoku means something like "numbers singly".</p>
+
+    <p>Solving a sudoku puzzle does not require knowledge of mathematics; simple logic suffices. (Instead of digits, other symbols can be used, e.g. letters, as long as there are nine different symbols.)</p>
+
+    <p>In each sudoku puzzle, several digits have already been entered (the "givens"); these may not be changed.</p>
+
+    <p>The puzzler's job is to fill the remainder of the grid with digits –respecting, of course, the three constraints mentioned earlier.</p>
+  </div>
+  <div class="tab_area" id="profile">
+  </div>
+  <div class="tab_area" id="overall">
+  </div>
