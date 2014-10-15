@@ -146,8 +146,14 @@ body {
   height: 51em;
   position: fixed;
   width: 100%; }
-  #welcome #canvas {
-    margin-top: 10%; }
+  #welcome .center_div {
+    position: relative;
+    top: 12%; }
+  #welcome .welcome_title {
+    color: white;
+    font-family: cursive;
+    font-size: 5em;
+    height: 1em; }
   #welcome #signup, #welcome #signin {
     width: 100%;
     margin: 2%; }
