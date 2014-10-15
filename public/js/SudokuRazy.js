@@ -1,0 +1,4 @@
+SudokuRazy = {};
+
+SudokuRazy.app = function() {
+}

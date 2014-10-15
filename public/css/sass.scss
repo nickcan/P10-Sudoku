@@ -212,11 +212,9 @@ body {
 
   .welcome_title {
     color: $lighter_color;
-    font-family: cursive;
     font-size: 5em;
     height: 1em;
     text-align: center;
-    margin-bottom: 1.25em;
   }
 
   .center_div {
@@ -230,14 +228,14 @@ body {
 
     input {
       width: 70%;
-      height: 2em;
-      border-radius: 4px;
-      margin: 1%;
+      height: 3em;
+      border-radius: 8px;
+      margin: 2%;
     }
 
     .input_buttons {
       width: 35%;
-      margin: 1% 17%;
+      margin: 2% 19%;
       background-color: $dark_color;
       color: $lighter_color;
     }
