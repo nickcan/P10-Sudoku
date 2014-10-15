@@ -210,8 +210,16 @@ body {
   position: fixed;
   width: 100%;
 
-  #canvas {
-    margin-top: 10%;
+  .center_div {
+    position: relative;
+    top: 12%;
+  }
+
+  .welcome_title {
+    color: white;
+    font-family: cursive;
+    font-size: 5em;
+    height: 1em;
   }
 
   #signup, #signin {
