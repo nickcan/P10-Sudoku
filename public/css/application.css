@@ -142,23 +142,41 @@ body {
   color: #c9302c; }
 
 #welcome {
-  background-color: #3d414c;
+  background: radial-gradient(#3d88dd, #3d414c);
   height: 51em;
   position: fixed;
   width: 100%; }
-  #welcome .center_div {
-    position: relative;
-    top: 12%; }
   #welcome .welcome_title {
-    color: white;
+    color: #f9fafc;
     font-family: cursive;
     font-size: 5em;
-    height: 1em; }
-  #welcome #signup, #welcome #signin {
-    width: 100%;
-    margin: 2%; }
-    #welcome #signup input, #welcome #signin input {
-      width: 40%;
-      height: 2em; }
+    height: 1em;
+    text-align: center;
+    margin-bottom: 1.25em; }
+  #welcome .center_div {
+    position: relative;
+    top: 16%; }
+  #welcome .forms {
+    width: 35%; }
+    #welcome .forms input {
+      width: 70%;
+      height: 2em;
+      border-radius: 4px;
+      margin: 1%; }
+    #welcome .forms .input_buttons {
+      width: 35%;
+      margin: 1% 17%;
+      background-color: #3d414c;
+      color: #f9fafc; }
+  #welcome #signup {
+    float: left;
+    margin-left: 10%; }
+    #welcome #signup input {
+      float: right; }
+  #welcome #signin {
+    float: right;
+    margin-right: 10%; }
+    #welcome #signin input {
+      float: left; }
 
 /*# sourceMappingURL=application.css.map */
