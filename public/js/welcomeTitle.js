@@ -6,12 +6,23 @@ TitleLoader = {
       if (current < text.length) {
         header.text(header.text() + text[current++]);
       }
-    }, 120);
+    }, 100);
+  }
+}
+
+WelcomeView = {
+  hideForms: function() {
+    $('.forms').hide()
+  },
+
+  showForms: function() {
+    $('.forms').fadeIn('slow')
   }
 }
 
 $(document).ready(function() {
-  var headerText = "Welcome to Nick's Sudoku".split("");
-  TitleLoader.animateHeader(headerText);
-  TitleLoader.displayTagline();
+  WelcomeView.hideForms();
+  var headerText = "Welcome to Sudoku-razy".split("");
+  TitleLoader.animateHeader(headerText)
+  setTimeout(WelcomeView.showForms, 2500)
 });

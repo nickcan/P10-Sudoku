@@ -205,30 +205,59 @@ body {
 
 // Welcome Page
 #welcome {
-  background-color: $dark_color;
+  background: radial-gradient($blue, $dark_color);
   height: 51em;
   position: fixed;
   width: 100%;
 
-  .center_div {
-    position: relative;
-    top: 12%;
-  }
-
   .welcome_title {
-    color: white;
+    color: $lighter_color;
     font-family: cursive;
     font-size: 5em;
     height: 1em;
+    text-align: center;
+    margin-bottom: 1.25em;
   }
 
-  #signup, #signin {
-    width: 100%;
-    margin: 2%;
+  .center_div {
+    position: relative;
+    top: 16%;
+  }
+
+
+  .forms {
+    width: 35%;
 
     input {
-      width: 40%;
+      width: 70%;
       height: 2em;
+      border-radius: 4px;
+      margin: 1%;
+    }
+
+    .input_buttons {
+      width: 35%;
+      margin: 1% 17%;
+      background-color: $dark_color;
+      color: $lighter_color;
+    }
+  }
+
+  #signup {
+    float: left;
+    margin-left: 10%;
+
+    input {
+      float: right;
+    }
+  }
+
+  #signin {
+    float: right;
+    margin-right: 10%;
+
+    input {
+      float: left;
     }
   }
 }
