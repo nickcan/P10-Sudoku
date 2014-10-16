@@ -1,4 +1,4 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
   // Model
   // var SudokuRazy.GameModel = {
@@ -200,13 +200,13 @@ $(document).ready(function() {
   //                         "{{/users}}"
 
 
-  SudokuRazy.GameView.hideLightbox();
-  $('.incorrect').hide()
-  $('#tabs').tabs();
+  // SudokuRazy.GameView.hideLightbox();
+  // $('.incorrect').hide()
+  // $('#tabs').tabs();
 
-  SudokuRazy.GameController.bindEvents();
+  // SudokuRazy.GameController.bindEvents();
 
-});
+// });
 
 
 
