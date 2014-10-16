@@ -11,8 +11,8 @@ SudokuRazy.GameController = function(GameModel, GameView) {
     $('.new_game_lightbox').click(function() {
       SudokuRazy.GameView.hideLightbox();
       this.getNewBoard();
-    })
-  }
+    }.bind(this))
+  }.bind(this)
 
   // Series of actions to get a new board and populate it.
   this.getNewBoard = function() {
@@ -41,8 +41,8 @@ SudokuRazy.GameController = function(GameModel, GameView) {
   this.checkSolution = function() {
     if (GameModel.solvedBoard.board === "") {
       var information = {element: $(this).attr('href'), request_type: "POST", data_stuff: GameModel.currentBoard}
-      this.ajaxCall(information).done(function(completedBoard) {
-        string = SudokuRazy.GameView.compileBoardToString()
+      self.ajaxCall(information).done(function(completedBoard) {
+        var string = SudokuRazy.GameView.compileBoardToString()
         GameModel.checkCorrectness(string, completedBoard)
       })
     } else {
