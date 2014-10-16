@@ -1,13 +1,12 @@
 SudokuRazy.GameView = {
   profileTemplate: "<h2>{{username}}'s Profile</h2>" +
-                          "<p><b>Attempts:</b> {{attempts}}</p>" +
-                            "<p><b>Wins:</b> {{wins}}",
-                              // "<p><b>Win Percentage:</b> " + User.calculateWinPercentage("{{attempts}}", "{{wins}}")
+                      "<p><b>Attempts:</b> {{attempts}}</p>" +
+                      "<p><b>Wins:</b> {{wins}}",
 
   allUsersTemplate:  "{{#users}}" +
-                            "<h3>{{username}}</h3>" +
-                              "<p><b>Attempts</b>: {{attempts}}  |  <b>Wins:</b> {{wins}}</p>" +
-                          "{{/users}}",
+                        "<h3>{{username}}</h3>" +
+                          "<p><b>Attempts</b>: {{attempts}}  |  <b>Wins:</b> {{wins}}</p>" +
+                      "{{/users}}",
 
   setBoard: function(array) {
     $('#board td').each(function(i) {

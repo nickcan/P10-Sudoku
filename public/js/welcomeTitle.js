@@ -1,4 +1,4 @@
-TitleLoader = {
+SudokuRazy.TitleLoader = {
   animateHeader: function(text){
     current = 0;
     header = $(".welcome_title");
@@ -10,7 +10,7 @@ TitleLoader = {
   }
 }
 
-WelcomeView = {
+SudokuRazy.WelcomeView = {
   hideForms: function() {
     $('.forms').hide()
   },
@@ -19,10 +19,3 @@ WelcomeView = {
     $('.forms').fadeIn('slow')
   }
 }
-
-$(document).ready(function() {
-  WelcomeView.hideForms();
-  var headerText = "Welcome to Sudoku-razy".split("");
-  TitleLoader.animateHeader(headerText)
-  setTimeout(WelcomeView.showForms, 2500)
-});
