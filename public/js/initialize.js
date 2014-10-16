@@ -4,6 +4,4 @@ $(document).ready(function() {
   SudokuRazy.GameView.hideLightbox();
   $('.incorrect').hide()
   $('#tabs').tabs();
-
-  SudokuRazy.GameController.bindEvents();
 });
