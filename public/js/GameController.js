@@ -7,9 +7,9 @@ SudokuRazy.GameController = function(GameModel, GameView) {
     $('.submit_solution').click(this.checkSolution)
     $('#tabs ul li:nth-child(2) a').click(this.getProfile)
     $('#tabs ul li:nth-child(3) a').click(this.getUsers)
-    $('.x_button, .background').click(SudokuRazy.GameView.hideLightbox)
+    $('.x_button, .background').click(GameView.hideLightbox)
     $('.new_game_lightbox').click(function() {
-      SudokuRazy.GameView.hideLightbox();
+      GameView.hideLightbox();
       this.getNewBoard();
     }.bind(this))
   }.bind(this)
@@ -17,8 +17,8 @@ SudokuRazy.GameController = function(GameModel, GameView) {
   // Series of actions to get a new board and populate it.
   this.getNewBoard = function() {
     GameModel.solvedBoard.board = ""
-    SudokuRazy.GameView.clearBoard()
-    SudokuRazy.GameView.shakeBoard()
+    GameView.clearBoard()
+    GameView.shakeBoard()
     var information = {element: '/board/new', request_type: "GET"}
     self.ajaxCall(information).done(function(serverData) {
       self.newBoardDoneFunction(serverData)
@@ -42,12 +42,12 @@ SudokuRazy.GameController = function(GameModel, GameView) {
     if (GameModel.solvedBoard.board === "") {
       var information = {element: $(this).attr('href'), request_type: "POST", data_stuff: GameModel.currentBoard}
       self.ajaxCall(information).done(function(completedBoard) {
-        var string = SudokuRazy.GameView.compileBoardToString()
+        var string = GameView.compileBoardToString()
         GameModel.checkCorrectness(string, completedBoard)
       })
     } else {
       event.preventDefault();
-      string = SudokuRazy.GameView.compileBoardToString()
+      string = GameView.compileBoardToString()
       GameModel.checkCorrectness(string, GameModel.solvedBoard.board)
     }
   }
@@ -59,7 +59,7 @@ SudokuRazy.GameController = function(GameModel, GameView) {
       url: '/profile',
       type: 'GET'
     }).done(function(json) {
-      self.tabAreaDoneFunction(SudokuRazy.GameView.profileTemplate, json, $('#profile'))
+      self.tabAreaDoneFunction(GameView.profileTemplate, json, $('#profile'))
     })
   }
 
@@ -70,7 +70,7 @@ SudokuRazy.GameController = function(GameModel, GameView) {
       url: '/users',
       type: 'GET'
     }).done(function(json) {
-      self.tabAreaDoneFunction(SudokuRazy.GameView.allUsersTemplate, json, $('#overall'))
+      self.tabAreaDoneFunction(GameView.allUsersTemplate, json, $('#overall'))
     })
   }
 
@@ -80,7 +80,7 @@ SudokuRazy.GameController = function(GameModel, GameView) {
       type: 'PUT',
       data: GameModel.solvedBoard
     }).done(function() {
-      SudokuRazy.GameView.showLightbox();
+      GameView.showLightbox();
     })
   }
 
@@ -96,21 +96,21 @@ SudokuRazy.GameController = function(GameModel, GameView) {
   }
 
   this.newBoardDoneFunction = function(data) {
-    SudokuRazy.GameView.clearBoard();
+    GameView.clearBoard();
     this.setCurrentBoard(data)
     var array = GameModel.splitBoardString(GameModel.currentBoard.board)
-    SudokuRazy.GameView.setBoard(array)
+    GameView.setBoard(array)
   }
 
   this.solveBoardDoneFunction = function(data) {
-    SudokuRazy.GameView.setBoard(data)
-    string = SudokuRazy.GameView.compileBoardToString()
+    GameView.setBoard(data)
+    string = GameView.compileBoardToString()
   }
 
   this.tabAreaDoneFunction = function(template, user, element) {
     var html = Mustache.to_html(template, user);
-    SudokuRazy.GameView.clearTabArea(element)
-    SudokuRazy.GameView.appendTabArea(element, html)
+    GameView.clearTabArea(element)
+    GameView.appendTabArea(element, html)
   }
 
   this.setCurrentBoard = function(data) {
